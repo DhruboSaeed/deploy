@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./NavBar.css";
+// import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -37,7 +37,7 @@ function NavBar() {
               </div>
               <div className="header-right-section">
                 <div className="menu_search mR25">
-                  <a href="/home" className="a-header-decoration"></a>
+                  <a href="/home" className="a-header-decoration" aria-hidden="true"></a>
                   <NavSearchIcon style={{ height: "30px" }} />
                 </div>
                 <div className="home mR25 effects">
@@ -124,7 +124,7 @@ function NavBar() {
                           <p className="t-16 t-bold t-black margin-bottom">
                             Accounts
                           </p>
-                          <a href="/home">Settings & Privacy</a>
+                          <a href="/home">Settings and Privacy</a>
                           <a href="/home">Help</a>
                           <a href="/home">Language</a>
                         </div>
@@ -135,7 +135,7 @@ function NavBar() {
                           <p className="t-16 t-bold t-black margin-bottom">
                             Manage
                           </p>
-                          <a href="/home">Posts & Activity</a>
+                          <a href="/home">Posts and Activity</a>
                           <a href="/home">Job Posting Account</a>
                         </div>
                       </div>
