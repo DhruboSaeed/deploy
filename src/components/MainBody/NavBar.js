@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-// import "./NavBar.css";
+import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
