@@ -6,7 +6,7 @@ import Feed from "./Feed";
 function Home() {
   return (
     <div>
-      <h2>Hello Form the Home Page UPDATE!!</h2>
+      <h2>NavBar</h2>
       <Feed />
     </div>
   );

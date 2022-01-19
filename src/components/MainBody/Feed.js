@@ -1,5 +1,6 @@
 import React from "react";
 import LeftSection from "./LeftSection";
+import AsideSection from "./AsideSection";
 
 function Feed() {
   return (
@@ -7,6 +8,7 @@ function Feed() {
       <div className="container">
         <div className="body_container">
           <LeftSection />
+          <AsideSection />
         </div>
       </div>
     </div>
