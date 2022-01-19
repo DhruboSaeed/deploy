@@ -6,11 +6,11 @@ import HomePage from "./components/MainBody/Home";
 
 function App() {
   return (
-    <Router basename="https://kind-bose-c112f6.netlify.app">
+    <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route exact path="https://kind-bose-c112f6.netlify.app/" element={<Login />} />
+          <Route path="https://kind-bose-c112f6.netlify.app/home" element={<HomePage />} />
         </Routes>
       </div>
     </Router>
