@@ -20,6 +20,8 @@ function ModalSection({ closeModal }) {
   });
 
   function sendData() {
+      console.log("Created Post!");
+      
     // Scope for api call
     // axios
     //   .post(`http://localhost:8000/api/posts/AddPost`, data)
