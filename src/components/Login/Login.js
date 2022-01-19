@@ -4,9 +4,10 @@ import { ReactComponent as LinkedInLogo } from "./linkedin-logo.svg";
 import { ReactComponent as OTPlogo } from "./otp.svg";
 import { ReactComponent as AppleLogo } from "./apple.svg";
 import { ReactComponent as FooterLogo } from "./footer-logo.svg";
-import { useFormik } from "formik";
-import { validate } from "../Utility";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 import "./login.css";
+import Input from "../InputField/InputField";
 
 function Login() {
   let navigate = useNavigate();
@@ -15,25 +16,22 @@ function Login() {
     password: "admin",
   };
 
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validate,
-    onSubmit: (values) => {
-      console.log("Values", values);
-      console.log("User", user);
-      if (JSON.stringify(user) === JSON.stringify(values)) {
-        // console.log("Done");
-        navigate('/home');
-        
-      } else {
-        console.log("Not Done");
-        window.alert("Password or Email not Matched!!");
-      }
-    },
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+  const validationSchema = Yup.object({
+    email: Yup.string().required("Required"),
+    password: Yup.string().required("Required"),
   });
+  const onSubmit = (values) => {
+    if (JSON.stringify(user) === JSON.stringify(values)) {
+      navigate("/home");
+    } else {
+      console.log("Not Done");
+      window.alert("Password or Email not Matched!!");
+    }
+  };
 
   return (
     <div className="app-container">
@@ -54,50 +52,37 @@ function Login() {
               </p>
             </div>
 
-            <form onSubmit={formik.handleSubmit}>
-              <div className="form-section">
-                <div className="your-input">
-                  <input
-                    name="email"
-                    type="text"
-                    className="input"
-                    placeholder="Enter Email or Phone"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.email}
-                  />
-                  {formik.touched.email && formik.errors.email ? (
-                    <div className="errorText">{formik.errors.email}</div>
-                  ) : null}
-                </div>
-                <div className="your-input">
-                  <input
-                    name="password"
-                    type="password"
-                    className="input"
-                    placeholder="Enter Password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  {formik.touched.password && formik.errors.password ? (
-                    <div className="errorText">{formik.errors.password}</div>
-                  ) : null}
-                </div>
-
-                <div className="forgot-password">
-                  <a href="/" className="forgot-password-link">
-                    {" "}
-                    Forgot password?{" "}
-                  </a>
-                </div>
-                <div className="signup-button">
-                  <button className="button-1" type="submit">
-                    Sign in
-                  </button>
-                </div>
-              </div>
-            </form>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={onSubmit}
+            >
+              {(formik) => (
+                <Form>
+                  <div className="form-section">
+                    <div className="your-input">
+                      <Input
+                        type="email"
+                        name="email"
+                        placeholder="Enter Email or Phone"
+                      />
+                    </div>
+                    <div className="your-input">
+                      <Input
+                        type="password"
+                        placeholder="Enter Password"
+                        name="password"
+                      />
+                    </div>
+                    <div className="signup-button">
+                      <button className="button-1" type="submit">
+                        Sign in
+                      </button>
+                    </div>
+                  </div>
+                </Form>
+              )}
+            </Formik>
 
             <div className="alternative-signin-container">
               <div className="or-separator">
