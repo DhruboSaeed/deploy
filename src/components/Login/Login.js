@@ -25,8 +25,9 @@ function Login() {
       console.log("Values", values);
       console.log("User", user);
       if (JSON.stringify(user) === JSON.stringify(values)) {
-        console.log("Done");
-        navigate("/home");
+        // console.log("Done");
+        navigate('/home');
+        
       } else {
         console.log("Not Done");
         window.alert("Password or Email not Matched!!");

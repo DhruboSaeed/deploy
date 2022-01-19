@@ -1,19 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login/Login";
-import HomePage from './components/MainBody/Home'
+import HomePage from "./components/MainBody/Home";
 
 function App() {
-
-  const [loggedIn, setloggedIn] = useState(true)
-
   return (
-    <Router>
+    <Router basename="https://kind-bose-c112f6.netlify.app/">
       <div className="App">
         <Routes>
           <Route exact path="/" element={<Login />} />
-          {loggedIn ? (<Route exact path="/home" element={<HomePage setloggedIn={setloggedIn}/>} />) : null}
+          <Route path="/home" element={<HomePage />} />
         </Routes>
       </div>
     </Router>
