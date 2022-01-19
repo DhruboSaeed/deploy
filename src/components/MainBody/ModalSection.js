@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Feed.css";
-// import axios from "axios";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 import { ReactComponent as PrivacyIcon } from "../svg/modal-anyone-icon.svg";
 import { ReactComponent as ModalPhotoIcon } from "../svg/modal-photo-icon.svg";
 import { ReactComponent as ModalVideoIcon } from "../svg/modal-video-icon.svg";
@@ -11,28 +12,25 @@ import { ReactComponent as ModalPollIcon } from "../svg/modal-poll-icon.svg";
 import { ReactComponent as ModalPostIcon } from "../svg/modal-post-icon.svg";
 import { ReactComponent as GlobeIcon } from "../svg/globe.svg";
 import { ReactComponent as DropDownIcon } from "../svg/drop-down.svg";
+import TextAreaField from "../InputField/TextAreaField";
 
 function ModalSection({ closeModal }) {
-  const [data, setdata] = useState({
+  const initialValues = {
     user_name: "Dhrubo",
     info_title: "Junior Developer",
     post_info: "",
+  };
+  const validationSchema = Yup.object({
+    post_info: Yup.string().required("Please Type Enything!!"),
   });
 
-  function sendData() {
-      console.log("Created Post!");
-      
-    // Scope for api call
-    // axios
-    //   .post(`http://localhost:8000/api/posts/AddPost`, data)
-    //   .then((response) => {
-    //     console.log("Response", response);
-    //     window.location.reload(false)
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-  }
+  const onSubmit = (values) => {
+    console.log("Post Created", values);
+    if (values) {
+      closeModal();
+      // window.location.reload(false)
+    }
+  };
 
   return (
     <div className="whole-modal">
@@ -58,17 +56,26 @@ function ModalSection({ closeModal }) {
               </button>
             </div>
           </div>
-
-          <textarea
-            id="post_info"
-            name="post_info"
-            className="modal-text-area"
-            placeholder="What do you want to talk about?"
-            value={data.post_info}
-            onChange={(e) =>
-              setdata({ ...data, [e.target.name]: e.target.value })
-            }
-          ></textarea>
+          <div className="modal-text-area">
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={onSubmit}
+            >
+              {(formik) => (
+                <Form>
+                  <TextAreaField
+                    type="text"
+                    name="post_info"
+                    placeholder="What do you want to talk about?"
+                  />
+                  <button className="modal-post-button" type="submit">
+                    POST
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          </div>
         </div>
 
         <div className="modal-bottom">
@@ -103,18 +110,6 @@ function ModalSection({ closeModal }) {
               <button className="logos-button modal-display-flex">
                 <PrivacyIcon />
                 <span className="pD4">Anyone</span>
-              </button>
-            </div>
-
-            <div className="post-button-section">
-              <button
-                className="modal-post-button"
-                onClick={() => {
-                  sendData();
-                  closeModal();
-                }}
-              >
-                <span>Post</span>
               </button>
             </div>
           </div>

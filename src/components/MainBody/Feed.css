@@ -811,6 +811,10 @@
   padding: 10px;
 }
 
+.modal-bottom{
+  margin-top: 10px;
+}
+
 .p0 {
   padding: 0 !important;
 }
@@ -839,7 +843,7 @@
   margin-left: 5px;
 }
 
-.modal-text-area {
+.modal-text-area > textarea {
   width: 94%;
   height: 100px;
   resize: none;
@@ -901,6 +905,12 @@
   border-radius: 25px !important;
   padding: 6px 20px 6px 20px;
   border: none;
+  margin-left: 15px;
+}
+
+.post-error{
+  margin-left: 15px;
+    margin-bottom: 10px;
 }
 
 /* Sort By Section */
