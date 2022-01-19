@@ -1,16 +1,5 @@
 import React, { useRef } from "react";
 import "./NavBar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faUserFriends,
-  faBriefcase,
-  faComments,
-  faBell,
-} from "@fortawesome/free-solid-svg-icons";
-import { ReactComponent as SearchIcon } from "../svg/search-icon.svg";
-import { ReactComponent as NavSearchIcon } from "../svg/nav-search-icon.svg";
-import { ReactComponent as ProfileDropDownButton } from "../svg/sort-by-dropdown.svg";
 import { useDetectOutsideClick } from "./useDetectoutsideClick";
 
 function NavBar() {
@@ -27,7 +16,7 @@ function NavBar() {
               <div className="header-left-section">
                 <img src={require("../images/linkedin-logo.png")} alt="" />
                 <div className="header-search-input">
-                  <SearchIcon />
+                  {/* <SearchIcon /> */}
                   <input
                     type="text"
                     placeholder="Search"
@@ -38,17 +27,17 @@ function NavBar() {
               <div className="header-right-section">
                 <div className="menu_search mR25">
                   <a href="/home" className="a-header-decoration" aria-hidden="true"></a>
-                  <NavSearchIcon style={{ height: "30px" }} />
+                  {/* <NavSearchIcon style={{ height: "30px" }} /> */}
                 </div>
                 <div className="home mR25 effects">
                   <a href="/home" className="a-header-decoration">
-                    <FontAwesomeIcon icon={faHome} className="icons" />
+                    {/* <FontAwesomeIcon icon={faHome} className="icons" /> */}
                     <p className="nav-barP t-12 nav-span-color mT5">Home</p>
                   </a>
                 </div>
                 <div className="network mR25 effects">
                   <a href="/home" className="a-header-decoration">
-                    <FontAwesomeIcon icon={faUserFriends} className="icons" />
+                    {/* <FontAwesomeIcon icon={faUserFriends} className="icons" /> */}
                     <p className="nav-barP nav-span-color t-12 mT5">
                       My Network
                     </p>
@@ -56,13 +45,13 @@ function NavBar() {
                 </div>
                 <div className="jobs mR25 effects">
                   <a href="/home" className="a-header-decoration">
-                    <FontAwesomeIcon icon={faBriefcase} className="icons" />
+                    {/* <FontAwesomeIcon icon={faBriefcase} className="icons" /> */}
                     <p className="nav-barP nav-span-color t-12 mT5">Jobs</p>
                   </a>
                 </div>
                 <div className="messaging mR25 effects">
                   <a href="/home" className="a-header-decoration">
-                    <FontAwesomeIcon icon={faComments} className="icons" />
+                    {/* <FontAwesomeIcon icon={faComments} className="icons" /> */}
                     <p className="nav-barP nav-span-color t-12 mT5">
                       Messaging
                     </p>
@@ -70,7 +59,7 @@ function NavBar() {
                 </div>
                 <div className="notification mR25 effects">
                   <a href="/home" className="a-header-decoration">
-                    <FontAwesomeIcon icon={faBell} className="icons" />
+                    {/* <FontAwesomeIcon icon={faBell} className="icons" /> */}
                     <p className="nav-barP nav-span-color t-12 mT5">
                       Notifications
                     </p>
@@ -86,7 +75,7 @@ function NavBar() {
                     />
                     <span className="profile-span">
                       <p className="profile-span-p">Me</p>
-                      <ProfileDropDownButton />
+                      {/* <ProfileDropDownButton /> */}
                     </span>
                   </button>
                   <nav
@@ -147,7 +136,7 @@ function NavBar() {
                 </div>
                 <div className="work mR25 effects">
                   <a href="/home" className="a-header-decoration">
-                    <FontAwesomeIcon icon={faBell} className="icons" />
+                    {/* <FontAwesomeIcon icon={faBell} className="icons" /> */}
                     <p className="nav-span-color t-12 mT5">Work</p>
                   </a>
                 </div>
