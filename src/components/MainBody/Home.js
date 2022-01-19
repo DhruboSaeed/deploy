@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 function Home() {
   return (
     <div>
-      <NavBar />
+      <h2>Hello Form the Home Page UPDATE!!</h2>
     </div>
   );
 }
